@@ -5,4 +5,4 @@
 - numpy
 - dahuffman
 - scikit-dsp-comm
-- scikit-comnpy
+- scikit-commpy
