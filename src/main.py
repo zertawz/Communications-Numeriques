@@ -28,9 +28,7 @@ bit_stream_padded = lib.padding(bit_stream, k)
 #convert into an array
 bit_array = lib.string_to_array(bit_stream_padded)
 #do the cyclic codage
-cyclic_coder = lib.cyclic_codage(bit_array, n, k)
-#Encoding bit stream using the cyclic coder calculated
-
+gen_poly_bits = lib.cyclic_codage(bit_array, n, k, debug)
 """
 --- Third part ---
 """

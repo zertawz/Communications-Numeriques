@@ -44,7 +44,7 @@ def bytes_to_bitstream(enc_data, debug = False):
         print(binary)
     return(binary)
 
-#adding padding
+#adding padding before converting
 def padding(bit_stream, k, debug = False):
     #number of bits to add
     bourrage = k - len(bit_stream) % k
@@ -63,7 +63,7 @@ def string_to_array(bit_stream_padded, debug = False):
         print(bit_array)
     return (bit_array)
 
-#do the cyclic codage
+#Calculate Polynomes of the cyclic codage
 def cyclic_codage(bit_array, n, k, debug = False):
     gen_polynomial_int = cyclic_code_genpoly(n, k)[0]
     gen_poly_bits = str(bin(gen_polynomial_int))[2:]
@@ -72,7 +72,16 @@ def cyclic_codage(bit_array, n, k, debug = False):
         print(cyclic_coder)
     return (cyclic_coder)
 
-#Encoding bit stream
+#Encoding bit stream with the cyclic codage
+def cyclic_encoding(, debug = False):
+    channelEncoded = np.array(CyclicCoder.cyclic_encoder(bitstreamPadded), int)
+    if debug:
+        print(channelEncoded)
+    return channelEncoded
+
+#Adding padding before modulation
+#Modulation
+#Gaussian Noise
 
 """
 --- RECEIVING PART ---
