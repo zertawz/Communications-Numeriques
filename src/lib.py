@@ -65,19 +65,23 @@ def string_to_array(bit_stream_padded, debug = False):
 
 #Calculate Polynomes of the cyclic codage
 def cyclic_codage(bit_array, n, k, debug = False):
+    #Calculate polynomial
     gen_polynomial_int = cyclic_code_genpoly(n, k)[0]
+    #Convert into binary string
     gen_poly_bits = str(bin(gen_polynomial_int))[2:]
+    #generate an object that makes you able to do cyclic coding
     cyclic_coder = block.FECCyclic(gen_poly_bits)
     if debug:
         print(cyclic_coder)
     return (cyclic_coder)
 
 #Encoding bit stream with the cyclic codage
-def cyclic_encoding(, debug = False):
-    channelEncoded = np.array(CyclicCoder.cyclic_encoder(bitstreamPadded), int)
+def cyclic_encoding(bit_array, cyclic_coder, debug = False):
+    #Encode bit stream using cyclic_coder generated before
+    channel_encoded = np.array(cyclic_coder.cyclic_encoder(bit_array), int)
     if debug:
-        print(channelEncoded)
-    return channelEncoded
+        print(channel_encoded)
+    return channel_encoded
 
 #Adding padding before modulation
 #Modulation
